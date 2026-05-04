@@ -140,17 +140,15 @@ for period, orders_batch in orders.groupby('year_month'):
 ---
 
 ## Phase 2 — Pipeline Orchestration (ADLS to Lakehouse)
+---
+![](orchestration-pipeline.png)
+---
 
 ### Overview
 
 Data ingestion is orchestrated through a Microsoft Fabric Data Factory pipeline. The pipeline is fully automated, idempotent, and audit-tracked. It ran successfully on 04 May 2026 processing 22 activities in 3 minutes 41 seconds with all activities reporting Succeeded status.
 
 ### Pipeline Stages
----
-
-![](orchestration pipeline.png)
-
----
 
 | Step | Activity | Detail |
 |---|---|---|
@@ -334,7 +332,7 @@ One row per customer order. Contains all order-level metrics, delivery performan
 | order_month | VARCHAR | Calculated | Year and month of purchase for trend grouping | 2017-03 |
 | order_year | INTEGER | Calculated | Year of purchase for annual comparison | 2017 |
 
-### 7.2 sales_order_lines (fact_order_lines)
+### sales_order_lines (fact_order_lines)
 
 One row per distinct order line. An order line is a unique combination of order, product, seller, and shipping date. Multiple units of the same product are aggregated into a single line with a quantity count.
 
@@ -351,7 +349,7 @@ One row per distinct order line. An order line is a unique combination of order,
 | freight_value | DECIMAL | order_items.csv | Total freight charge for this order line | 49.85 |
 | shipping_limit_date | TIMESTAMP | order_items.csv | Latest date the seller must ship the item | 2017-03-22 08:53:48 |
 
-### 7.3 dim_customers
+### dim_customers
 
 One row per unique customer. Contains customer demographic and location attributes.
 
@@ -364,7 +362,7 @@ One row per unique customer. Contains customer demographic and location attribut
 | customer_city | VARCHAR | customers.csv | City where the customer is located (Title Case) | Sao Paulo |
 | customer_state | VARCHAR | customers.csv | Brazilian state abbreviation where customer is located | SP |
 
-### 7.4 dim_products
+### dim_products
 
 One row per unique product. Contains product catalogue attributes and physical dimensions.
 
@@ -381,7 +379,7 @@ One row per unique product. Contains product catalogue attributes and physical d
 | product_width_cm | INTEGER | products.csv | Product width in centimetres | 22 |
 | product_height_cm | INTEGER | products.csv | Product height in centimetres | 15 |
 
-### 7.5 dim_sellers
+### dim_sellers
 
 One row per unique seller. Contains seller location and identification attributes.
 
@@ -393,7 +391,7 @@ One row per unique seller. Contains seller location and identification attribute
 | seller_city | VARCHAR | sellers.csv | City where the seller is located (Title Case) | Cariacica |
 | seller_state | VARCHAR | sellers.csv | Brazilian state abbreviation where seller operates | ES |
 
-### 7.6 Disconnected Reference Tables
+### Disconnected Reference Tables
 
 Three additional tables exist in the semantic model without relationships to the fact or dimension tables. They support specific Power BI visualisations via the SWITCH and SELECTEDVALUE DAX pattern.
 
@@ -405,7 +403,9 @@ Three additional tables exist in the semantic model without relationships to the
 
 ---
 
-## 8. Phase 4 — Semantic Model
+## Phase 4 — Semantic Model
+---
+![](orchestration-pipeline.png)
 
 ### 8.1 Relationships
 
