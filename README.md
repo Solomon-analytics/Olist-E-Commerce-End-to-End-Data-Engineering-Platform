@@ -405,9 +405,12 @@ Three additional tables exist in the semantic model without relationships to the
 
 ## Phase 4 — Semantic Model
 ---
-![](orchestration-pipeline.png)
 
-### 8.1 Relationships
+![](semantic-model.png)
+
+---
+
+### Relationships
 
 | From Table | Key | To Table | Cardinality |
 |---|---|---|---|
@@ -416,7 +419,7 @@ Three additional tables exist in the semantic model without relationships to the
 | sales_order_lines | product_key | dim_products.product_key | Many-to-One |
 | sales_order_lines | seller_key | dim_sellers.seller_key | Many-to-One |
 
-### 8.2 Key DAX Measures
+### Key DAX Measures
 
 ```dax
 -- Revenue and Volume
@@ -437,22 +440,11 @@ Avg Days to Ship    = AVERAGE(orders[days_to_ship])
 Avg Days Early      = ABS(AVERAGE(orders[delivery_variance_days]))
 Last Mile Days      = [Avg Days to Deliver] - [Avg Days to Ship] - [Avg Days to Approve]
 
--- Delivery window distribution (uses disconnected Deliver Windows table)
-Orders in Window =
-SWITCH(SELECTEDVALUE('Deliver Windows'[windows]),
-    "1-7 days",   [Orders 1 to 7 Days],
-    "8-14 days",  [Orders 8 to 14 Days],
-    "15-21 days", [Orders 15 to 21 Days],
-    "22-30 days", [Orders 22 to 30 Days],
-    "31+ days",   [Orders 31 Plus Days],
-    BLANK())
-```
-
 ---
 
-## 9. Phase 5 — Power BI Report
+## Phase 5 — Power BI Report
 
-### 9.1 Report Pages
+### Report Pages
 
 | Page | Audience | Key Metrics |
 |---|---|---|
