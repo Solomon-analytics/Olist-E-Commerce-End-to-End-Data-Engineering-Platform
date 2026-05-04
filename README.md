@@ -410,6 +410,35 @@ Three additional tables exist in the semantic model without relationships to the
 
 ---
 
+## Phase 5 — Power BI Report
+
+---
+
+## Report Pages
+
+### Executive Overview
+
+![](EXECUTIVE-OVERVIEW.png)
+
+
+### Order Shipment Performance
+
+![](order-shipment-performance.png)
+
+
+### Sales Performance
+
+![](SALES-PERFORMANCE.png)
+
+---
+### Report Pages
+
+| Page | Audience | Key Metrics |
+|---|---|---|
+| Executive Overview | C-suite and senior leadership | Total Revenue R$792K, 5,591 orders, on-time rate 89.4%, review score 4.02, revenue growth trend |
+| Sales Performance | Sales and product teams | Top 10 categories by revenue, unit economics, monthly breakdown by order size, revenue vs payment gap |
+| Order and Shipment Performance | Logistics and operations | Delivery pipeline stages, SLA scorecard, seller network, on-time vs late by month, review trend |
+
 ### Relationships
 
 | From Table | Key | To Table | Cardinality |
@@ -418,6 +447,8 @@ Three additional tables exist in the semantic model without relationships to the
 | sales_order_lines | order_key | orders.order_key | Many-to-One |
 | sales_order_lines | product_key | dim_products.product_key | Many-to-One |
 | sales_order_lines | seller_key | dim_sellers.seller_key | Many-to-One |
+
+---
 
 ### Key DAX Measures
 
@@ -441,21 +472,6 @@ Avg Days Early      = ABS(AVERAGE(orders[delivery_variance_days]))
 Last Mile Days      = [Avg Days to Deliver] - [Avg Days to Ship] - [Avg Days to Approve]
 
 ---
-
-## Phase 5 — Power BI Report
-
----
-
-![](order-shipment-performance.png)
-
----
-### Report Pages
-
-| Page | Audience | Key Metrics |
-|---|---|---|
-| Executive Overview | C-suite and senior leadership | Total Revenue R$792K, 5,591 orders, on-time rate 89.4%, review score 4.02, revenue growth trend |
-| Sales Performance | Sales and product teams | Top 10 categories by revenue, unit economics, monthly breakdown by order size, revenue vs payment gap |
-| Order and Shipment Performance | Logistics and operations | Delivery pipeline stages, SLA scorecard, seller network, on-time vs late by month, review trend |
 
 ### Key Findings
 
