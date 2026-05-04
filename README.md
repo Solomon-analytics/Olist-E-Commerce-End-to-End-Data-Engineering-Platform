@@ -183,7 +183,7 @@ SELECT file_name FROM file_tracker;
 
 ---
 
-![](medallion-architecture.png)
+![](olist-medallion-architecture.svg)
 
 ---
 
