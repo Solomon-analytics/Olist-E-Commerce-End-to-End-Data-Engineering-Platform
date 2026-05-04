@@ -444,6 +444,11 @@ Last Mile Days      = [Avg Days to Deliver] - [Avg Days to Ship] - [Avg Days to 
 
 ## Phase 5 — Power BI Report
 
+---
+
+![](EXECUTIVE-OVERVIEW.png)
+
+---
 ### Report Pages
 
 | Page | Audience | Key Metrics |
