@@ -146,6 +146,11 @@ for period, orders_batch in orders.groupby('year_month'):
 Data ingestion is orchestrated through a Microsoft Fabric Data Factory pipeline. The pipeline is fully automated, idempotent, and audit-tracked. It ran successfully on 04 May 2026 processing 22 activities in 3 minutes 41 seconds with all activities reporting Succeeded status.
 
 ### Pipeline Stages
+---
+
+![](orchestration pipeline.png)
+
+---
 
 | Step | Activity | Detail |
 |---|---|---|
@@ -177,6 +182,12 @@ SELECT file_name FROM file_tracker;
 ---
 
 ## Phase 3 — Medallion Architecture Transformation
+
+---
+
+![](medallion-architecture.png)
+
+---
 
 ### Layer Summary
 
