@@ -26,7 +26,7 @@ The platform follows the industry-standard medallion architecture (Bronze, Silve
 - End-to-end data pipeline from raw CSV files to executive Power BI dashboards
 - Automated batch ingestion from ADLS Gen2 into Microsoft Fabric Lakehouse using Azure Data Factory
 - Multi-layer transformation (Bronze to Silver to Gold) using PySpark in Fabric Notebooks
-- Star schema modelling with surrogate key generation and upsert-based loading
+- Fact constellation schema modelling with stable hash surrogate keys and upsert-based loading
 - Three-page Power BI report covering Executive, Sales, and Operational performance
 - Fully orchestrated pipeline with file tracking, deduplication, and automated cleanup
 
